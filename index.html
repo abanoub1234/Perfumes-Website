@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scents & Elegance - Premium Perfumes</title>
+    <title>عطور الفخامة - العطور الفاخرة بالمملكة العربية السعودية</title>
     <style>
         /* Global Styles */
         * {
@@ -28,6 +28,7 @@
             background-color: #f9f9f9;
             color: var(--text);
             line-height: 1.6;
+            direction: rtl;
         }
 
         .container {
@@ -93,8 +94,8 @@
             content: '';
             position: absolute;
             bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 50%;
+            transform: translateX(50%);
             width: 80px;
             height: 3px;
             background-color: var(--accent);
@@ -134,7 +135,7 @@
         }
 
         .nav-links li {
-            margin-left: 30px;
+            margin-right: 30px;
         }
 
         .nav-links a {
@@ -154,7 +155,7 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            right: 0;
             width: 0;
             height: 2px;
             background-color: var(--primary);
@@ -477,7 +478,7 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            right: 0;
             width: 40px;
             height: 2px;
             background-color: var(--accent);
@@ -547,12 +548,12 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Scents<span>&</span>Elegance</a>
+                <a href="#" class="logo">عطور<span>الفخامة</span></a>
                 <ul class="nav-links">
-                    <li><a href="#" class="nav-link" data-page="home" class="active-link">Home</a></li>
-                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
-                    <li><a href="#" class="nav-link" data-page="login">Login</a></li>
-                    <li><a href="#" class="nav-link" data-page="register">Register</a></li>
+                    <li><a href="#" class="nav-link" data-page="home" class="active-link">الرئيسية</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">من نحن</a></li>
+                    <li><a href="#" class="nav-link" data-page="login">تسجيل الدخول</a></li>
+                    <li><a href="#" class="nav-link" data-page="register">إنشاء حساب</a></li>
                 </ul>
             </nav>
         </div>
@@ -562,19 +563,19 @@
     <section id="login" class="page">
         <div class="login-container">
             <div class="login-form">
-                <h2>Login to Your Account</h2>
+                <h2>تسجيل الدخول إلى حسابك</h2>
                 <form id="loginForm">
                     <div class="form-group">
-                        <label for="loginEmail">Email Address</label>
-                        <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+                        <label for="loginEmail">البريد الإلكتروني</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
                     </div>
                     <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                        <label for="loginPassword">كلمة المرور</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="أدخل كلمة المرور" required>
                     </div>
-                    <button type="submit" class="btn" style="width: 100%;">Login</button>
+                    <button type="submit" class="btn" style="width: 100%;">تسجيل الدخول</button>
                     <div class="form-footer">
-                        <p>Don't have an account? <a href="#" class="nav-link" data-page="register">Register here</a></p>
+                        <p>ليس لديك حساب؟ <a href="#" class="nav-link" data-page="register">سجل هنا</a></p>
                     </div>
                 </form>
             </div>
@@ -585,27 +586,27 @@
     <section id="register" class="page">
         <div class="register-container">
             <div class="register-form">
-                <h2>Create an Account</h2>
+                <h2>إنشاء حساب جديد</h2>
                 <form id="registerForm">
                     <div class="form-group">
-                        <label for="registerName">Full Name</label>
-                        <input type="text" id="registerName" class="form-control" placeholder="Enter your full name" required>
+                        <label for="registerName">الاسم الكامل</label>
+                        <input type="text" id="registerName" class="form-control" placeholder="أدخل اسمك الكامل" required>
                     </div>
                     <div class="form-group">
-                        <label for="registerEmail">Email Address</label>
-                        <input type="email" id="registerEmail" class="form-control" placeholder="Enter your email" required>
+                        <label for="registerEmail">البريد الإلكتروني</label>
+                        <input type="email" id="registerEmail" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
                     </div>
                     <div class="form-group">
-                        <label for="registerPassword">Password</label>
-                        <input type="password" id="registerPassword" class="form-control" placeholder="Create a password" required>
+                        <label for="registerPassword">كلمة المرور</label>
+                        <input type="password" id="registerPassword" class="form-control" placeholder="أنشئ كلمة مرور" required>
                     </div>
                     <div class="form-group">
-                        <label for="registerConfirmPassword">Confirm Password</label>
-                        <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Confirm your password" required>
+                        <label for="registerConfirmPassword">تأكيد كلمة المرور</label>
+                        <input type="password" id="registerConfirmPassword" class="form-control" placeholder="أكد كلمة المرور" required>
                     </div>
-                    <button type="submit" class="btn" style="width: 100%;">Register</button>
+                    <button type="submit" class="btn" style="width: 100%;">إنشاء حساب</button>
                     <div class="form-footer">
-                        <p>Already have an account? <a href="#" class="nav-link" data-page="login">Login here</a></p>
+                        <p>هل لديك حساب بالفعل؟ <a href="#" class="nav-link" data-page="login">سجل الدخول هنا</a></p>
                     </div>
                 </form>
             </div>
@@ -617,35 +618,35 @@
         <div class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Signature Scents for Every Personality</h1>
-                    <p>Discover our exclusive collection of premium perfumes, crafted to express your unique style</p>
-                    <a href="#" class="btn">Shop Now</a>
+                    <h1>عطور فاخرة تعبر عن شخصيتك</h1>
+                    <p>اكتشف مجموعتنا الحصرية من العطور الفاخرة، المصممة لتعبّر عن أسلوبك الفريد</p>
+                    <a href="#" class="btn">تسوق الآن</a>
                 </div>
             </div>
         </div>
 
         <div class="container">
             <div class="filter-section">
-                <h2 class="section-title">Our Perfume Collection</h2>
+                <h2 class="section-title">مجموعتنا من العطور</h2>
                 <div class="filter-controls">
                     <select id="typeFilter">
-                        <option value="">Filter by Type</option>
-                        <option value="floral">Floral</option>
-                        <option value="woody">Woody</option>
-                        <option value="fresh">Fresh</option>
-                        <option value="oriental">Oriental</option>
-                        <option value="citrus">Citrus</option>
+                        <option value="">تصفية حسب النوع</option>
+                        <option value="floral">عطور زهرية</option>
+                        <option value="woody">عطور خشبية</option>
+                        <option value="fresh">عطور منعشة</option>
+                        <option value="oriental">عطور شرقية</option>
+                        <option value="citrus">عطور حمضية</option>
                     </select>
                     <select id="priceFilter">
-                        <option value="">Filter by Price</option>
-                        <option value="0-50">$0 - $50</option>
-                        <option value="50-100">$50 - $100</option>
-                        <option value="100-200">$100 - $200</option>
-                        <option value="200+">$200+</option>
+                        <option value="">تصفية حسب السعر</option>
+                        <option value="0-50">0 - 50 ريال</option>
+                        <option value="50-100">50 - 100 ريال</option>
+                        <option value="100-200">100 - 200 ريال</option>
+                        <option value="200+">200+ ريال</option>
                     </select>
-                    <input type="text" id="nameFilter" placeholder="Search by perfume name">
-                    <button id="filterBtn" class="btn">Apply Filters</button>
-                    <button id="resetBtn" class="btn btn-outline">Reset</button>
+                    <input type="text" id="nameFilter" placeholder="البحث باسم العطر">
+                    <button id="filterBtn" class="btn">تطبيق التصفية</button>
+                    <button id="resetBtn" class="btn btn-outline">إعادة تعيين</button>
                 </div>
             </div>
 
@@ -659,43 +660,43 @@
     <section id="about" class="page">
         <div class="container">
             <div class="about-section">
-                <h2 class="section-title">About Scents & Elegance</h2>
+                <h2 class="section-title">عن عطور الفخامة</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <h3>Our Story</h3>
-                        <p>Scents & Elegance was established in 2012 with a vision to bring the world's finest fragrances to discerning customers. What began as a small boutique in Paris has grown into an internationally recognized destination for luxury perfumes.</p>
-                        <p>Our expert perfumers combine traditional techniques with innovative approaches to create scents that tell a story. We work directly with fragrance houses and independent creators to curate a collection that represents the pinnacle of olfactory artistry.</p>
-                        <p>At Scents & Elegance, we believe that a fragrance is more than just a scent—it's an expression of personality, a memory captured in a bottle, and an invisible accessory that completes your style. Whether you're seeking a signature scent or a special gift, we're here to guide you to the perfect fragrance.</p>
-                        <a href="#" class="btn">Contact Us</a>
+                        <h3>قصتنا</h3>
+                        <p>تأسست عطور الفخامة في عام 2012 برؤية تقديم أرقى العطور العالمية للعملاء في المملكة العربية السعودية. ما بدأ كمتجر صغير في الرياض تحول إلى وجهة معترف بها دوليًا للعطور الفاخرة.</p>
+                        <p>يجمع خبراؤنا بين التقنيات التقليدية والمناهج المبتكرة لخلق عطور تروي قصة. نحن نعمل مباشرة مع دور العطور والمبدعين المستقلين لاختيار مجموعة تمثل ذروة الفن الشمي.</p>
+                        <p>في عطور الفخامة، نؤمن بأن العطر ليس مجرد رائحة - إنه تعبير عن الشخصية، وذاكرة محفوظة في زجاجة، وإكسسوار غير مرئي يكمل أناقتك. سواء كنت تبحث عن عطر خاص بك أو هدية مميزة، نحن هنا لنساعدك في العثور على العطر المثالي.</p>
+                        <a href="#" class="btn">اتصل بنا</a>
                     </div>
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our perfume boutique">
+                        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="متجر عطور الفخامة">
                     </div>
                 </div>
             </div>
 
             <div class="team-section">
-                <h2 class="section-title">Meet Our Experts</h2>
+                <h2 class="section-title">فريقنا</h2>
                 <div class="team-grid">
                     <div class="team-member">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Isabelle Moreau" class="member-img">
-                        <h3 class="member-name">Isabelle Moreau</h3>
-                        <p class="member-role">Master Perfumer & Founder</p>
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="أحمد السديري" class="member-img">
+                        <h3 class="member-name">أحمد السديري</h3>
+                        <p class="member-role">خبير عطور ومؤسس</p>
                     </div>
                     <div class="team-member">
-                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Antonio Rossi" class="member-img">
-                        <h3 class="member-name">Antonio Rossi</h3>
-                        <p class="member-role">Fragrance Director</p>
+                        <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="سارة القحطاني" class="member-img">
+                        <h3 class="member-name">سارة القحطاني</h3>
+                        <p class="member-role">مديرة العطور</p>
                     </div>
                     <div class="team-member">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Sophie Laurent" class="member-img">
-                        <h3 class="member-name">Sophie Laurent</h3>
-                        <p class="member-role">Senior Fragrance Consultant</p>
+                        <img src="https://images.unsplash.com/photo-1589156191108-c762ff4b96ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="فيصل الحربي" class="member-img">
+                        <h3 class="member-name">فيصل الحربي</h3>
+                        <p class="member-role">خبير عطور أول</p>
                     </div>
                     <div class="team-member">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="James Wilson" class="member-img">
-                        <h3 class="member-name">James Wilson</h3>
-                        <p class="member-role">Customer Experience Manager</p>
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="نورة العتيبي" class="member-img">
+                        <h3 class="member-name">نورة العتيبي</h3>
+                        <p class="member-role">مديرة خدمة العملاء</p>
                     </div>
                 </div>
             </div>
@@ -707,38 +708,38 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Scents & Elegance</h3>
-                    <p>Bringing the world's finest fragrances to discerning customers since 2012.</p>
+                    <h3>عطور الفخامة</h3>
+                    <p>تقديم أرقى العطور العالمية للعملاء في المملكة العربية السعودية منذ 2012.</p>
                 </div>
                 <div class="footer-column">
-                    <h3>Quick Links</h3>
+                    <h3>روابط سريعة</h3>
                     <ul class="footer-links">
-                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
-                        <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#" class="nav-link" data-page="home">الرئيسية</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">من نحن</a></li>
+                        <li><a href="#">المتجر</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Customer Service</h3>
+                    <h3>خدمة العملاء</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Shipping Information</a></li>
-                        <li><a href="#">Returns & Exchanges</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">معلومات الشحن</a></li>
+                        <li><a href="#">الإرجاع والاستبدال</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">الشروط والأحكام</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Contact Us</h3>
+                    <h3>اتصل بنا</h3>
                     <ul class="footer-links">
-                        <li>123 Fragrance Avenue, Paris</li>
-                        <li>Phone: (555) 123-4567</li>
-                        <li>Email: info@scentsandelegance.com</li>
+                        <li>حي العليا، الرياض، المملكة العربية السعودية</li>
+                        <li>الهاتف: 920000000</li>
+                        <li>البريد الإلكتروني: info@alfakhamah.com</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Scents & Elegance. All rights reserved.</p>
+                <p>© 2023 عطور الفخامة. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
@@ -766,12 +767,12 @@
             // Form submissions
             document.getElementById('loginForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-                alert('Login functionality would be implemented here!');
+                alert('سيتم تنفيذ وظيفة تسجيل الدخول هنا!');
             });
             
             document.getElementById('registerForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-                alert('Registration functionality would be implemented here!');
+                alert('سيتم تنفيذ وظيفة التسجيل هنا!');
             });
             
             // Initialize perfume data and display
@@ -797,67 +798,67 @@
         const perfumes = [
             {
                 id: 1,
-                name: "Midnight Rose",
+                name: "وردة منتصف الليل",
                 type: "floral",
                 price: 85,
                 image: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-                description: "A captivating blend of dark roses and amber"
+                description: "مزيج آسر من الورود الداكنة والعنبر"
             },
             {
                 id: 2,
-                name: "Sandalwood Essence",
+                name: "جوهر الصندل",
                 type: "woody",
                 price: 120,
                 image: "https://www.mazaya.eg/media/catalog/product/g/a/ga_2025_ea-swy-sandalwood_100ml_3614274184631_rvb-4000_2_.png",
-                description: "Rich sandalwood with hints of vanilla and spice"
+                description: "صندل غني مع لمسات من الفانيليا والتوابل"
             },
             {
                 id: 3,
-                name: "Ocean Breeze",
+                name: "نسيم المحيط",
                 type: "fresh",
                 price: 65,
                 image: "https://eg.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/81/0368331/1.jpg?2195",
-                description: "Crisp aquatic notes with sea salt and citrus"
+                description: "نوتات مائية منعشة مع ملح البحر والحمضيات"
             },
             {
                 id: 4,
-                name: "Amber Oud",
+                name: "عنبر العود",
                 type: "oriental",
                 price: 150,
                 image: "https://faanperfumes.com/cdn/shop/files/RoyalAmberOudGoldEdition_1432007e-d2e1-4969-bc67-4dc3a773b33d.png?v=1717508719",
-                description: "Luxurious oud with warm amber and spices"
+                description: "عود فاخر مع عنبر دافئ والتوابل"
             },
             {
                 id: 5,
-                name: "Citrus Splash",
+                name: "انتعاش الحمضيات",
                 type: "citrus",
                 price: 55,
                 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQKB83PATjcdMlua0qu3m_B2A-q7_u6ssDQQ&s",
-                description: "Zesty lemon and bergamot with green notes"
+                description: "ليمون حيوي وبرغموت مع نوتات خضراء"
             },
             {
                 id: 6,
-                name: "Velvet Jasmine",
+                name: "ياسمين مخملي",
                 type: "floral",
                 price: 95,
                 image: "https://m.media-amazon.com/images/I/71lbNMT5jxL._AC_UF350,350_QL80_.jpg",
-                description: "Intoxicating jasmine with tuberose and musk"
+                description: "ياسمين مثير مع توبيروز ومسك"
             },
             {
                 id: 7,
-                name: "Cedar Forest",
+                name: "غابة الأرز",
                 type: "woody",
                 price: 110,
                 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtVqwch2HmGZozs4PJnfPJXXJ2HK7uk866PA&s",
-                description: "Earthy cedarwood with vetiver and patchouli"
+                description: "خشب أرز ترابي مع فيتيفر وباتشولي"
             },
             {
                 id: 8,
-                name: "Mountain Air",
+                name: "هواء الجبل",
                 type: "fresh",
                 price: 75,
                 image: "https://www.funfetti.shop/wp-content/uploads/2023/02/Mountain-air.jpg",
-                description: "Clean alpine notes with pine and fresh herbs"
+                description: "نوتات جبلية نقية مع صناع وأعشاب طازجة"
             }
         ];
         
@@ -870,7 +871,7 @@
             container.innerHTML = '';
             
             if (perfumesToDisplay.length === 0) {
-                container.innerHTML = '<p style="text-align: center; grid-column: 1 / -1; padding: 40px;">No perfumes match your filters. Please try different criteria.</p>';
+                container.innerHTML = '<p style="text-align: center; grid-column: 1 / -1; padding: 40px;">لا توجد عطور تطابق معايير التصفية. يرجى تجربة معايير مختلفة.</p>';
                 return;
             }
             
@@ -881,14 +882,25 @@
                     <img src="${perfume.image}" alt="${perfume.name}" class="perfume-img">
                     <div class="perfume-info">
                         <h3 class="perfume-name">${perfume.name}</h3>
-                        <span class="perfume-type">${perfume.type.charAt(0).toUpperCase() + perfume.type.slice(1)}</span>
-                        <p class="perfume-price">$${perfume.price}</p>
+                        <span class="perfume-type">${getArabicType(perfume.type)}</span>
+                        <p class="perfume-price">${perfume.price} ريال</p>
                         <p>${perfume.description}</p>
-                        <button class="btn" style="margin-top: 15px;">Add to Cart</button>
+                        <button class="btn" style="margin-top: 15px;">أضف إلى السلة</button>
                     </div>
                 `;
                 container.appendChild(perfumeCard);
             });
+        }
+        
+        function getArabicType(type) {
+            const typeMap = {
+                'floral': 'عطور زهرية',
+                'woody': 'عطور خشبية',
+                'fresh': 'عطور منعشة',
+                'oriental': 'عطور شرقية',
+                'citrus': 'عطور حمضية'
+            };
+            return typeMap[type] || type;
         }
         
         function filterPerfumes() {
