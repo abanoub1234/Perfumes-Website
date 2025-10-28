@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scents & Elegance - Premium Perfumes</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2691E;
+            --accent: #C19A6B;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --text: #333333;
+            --text-light: #777777;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active-link {
+            color: var(--primary);
+        }
+
+        .nav-links a.active-link::after {
+            width: 100%;
+        }
+
+        /* Login Page Styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            padding: 40px 0;
+        }
+
+        .login-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Register Page Styles */
+        .register-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            padding: 40px 0;
+        }
+
+        .register-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .register-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        /* Home Page Styles */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1547887537-6158d64c35b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .filter-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .filter-controls select, .filter-controls input {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .filter-controls button {
+            padding: 10px 20px;
+        }
+
+        .perfumes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .perfume-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .perfume-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .perfume-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .perfume-info {
+            padding: 20px;
+        }
+
+        .perfume-name {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .perfume-type {
+            display: inline-block;
+            background-color: var(--light);
+            color: var(--text-light);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .perfume-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* About Page Styles */
+        .about-section {
+            padding: 60px 0;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .team-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .member-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light);
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .member-role {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+            }
+
+            .nav-links li {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+            }
+
+            .filter-controls select, .filter-controls input {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Scents<span>&</span>Elegance</a>
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link" data-page="home" class="active-link">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="login">Login</a></li>
+                    <li><a href="#" class="nav-link" data-page="register">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Page -->
+    <section id="login" class="page">
+        <div class="login-container">
+            <div class="login-form">
+                <h2>Login to Your Account</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Login</button>
+                    <div class="form-footer">
+                        <p>Don't have an account? <a href="#" class="nav-link" data-page="register">Register here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register Page -->
+    <section id="register" class="page">
+        <div class="register-container">
+            <div class="register-form">
+                <h2>Create an Account</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email Address</label>
+                        <input type="email" id="registerEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" class="form-control" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Confirm Password</label>
+                        <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Confirm your password" required>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Register</button>
+                    <div class="form-footer">
+                        <p>Already have an account? <a href="#" class="nav-link" data-page="login">Login here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Signature Scents for Every Personality</h1>
+                    <p>Discover our exclusive collection of premium perfumes, crafted to express your unique style</p>
+                    <a href="#" class="btn">Shop Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="filter-section">
+                <h2 class="section-title">Our Perfume Collection</h2>
+                <div class="filter-controls">
+                    <select id="typeFilter">
+                        <option value="">Filter by Type</option>
+                        <option value="floral">Floral</option>
+                        <option value="woody">Woody</option>
+                        <option value="fresh">Fresh</option>
+                        <option value="oriental">Oriental</option>
+                        <option value="citrus">Citrus</option>
+                    </select>
+                    <select id="priceFilter">
+                        <option value="">Filter by Price</option>
+                        <option value="0-50">$0 - $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100-200">$100 - $200</option>
+                        <option value="200+">$200+</option>
+                    </select>
+                    <input type="text" id="nameFilter" placeholder="Search by perfume name">
+                    <button id="filterBtn" class="btn">Apply Filters</button>
+                    <button id="resetBtn" class="btn btn-outline">Reset</button>
+                </div>
+            </div>
+
+            <div class="perfumes-grid" id="perfumesContainer">
+                <!-- Perfume cards will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page">
+        <div class="container">
+            <div class="about-section">
+                <h2 class="section-title">About Scents & Elegance</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Story</h3>
+                        <p>Scents & Elegance was established in 2012 with a vision to bring the world's finest fragrances to discerning customers. What began as a small boutique in Paris has grown into an internationally recognized destination for luxury perfumes.</p>
+                        <p>Our expert perfumers combine traditional techniques with innovative approaches to create scents that tell a story. We work directly with fragrance houses and independent creators to curate a collection that represents the pinnacle of olfactory artistry.</p>
+                        <p>At Scents & Elegance, we believe that a fragrance is more than just a scent—it's an expression of personality, a memory captured in a bottle, and an invisible accessory that completes your style. Whether you're seeking a signature scent or a special gift, we're here to guide you to the perfect fragrance.</p>
+                        <a href="#" class="btn">Contact Us</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our perfume boutique">
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-section">
+                <h2 class="section-title">Meet Our Experts</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Isabelle Moreau" class="member-img">
+                        <h3 class="member-name">Isabelle Moreau</h3>
+                        <p class="member-role">Master Perfumer & Founder</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Antonio Rossi" class="member-img">
+                        <h3 class="member-name">Antonio Rossi</h3>
+                        <p class="member-role">Fragrance Director</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Sophie Laurent" class="member-img">
+                        <h3 class="member-name">Sophie Laurent</h3>
+                        <p class="member-role">Senior Fragrance Consultant</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="James Wilson" class="member-img">
+                        <h3 class="member-name">James Wilson</h3>
+                        <p class="member-role">Customer Experience Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Scents & Elegance</h3>
+                    <p>Bringing the world's finest fragrances to discerning customers since 2012.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Information</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>123 Fragrance Avenue, Paris</li>
+                        <li>Phone: (555) 123-4567</li>
+                        <li>Email: info@scentsandelegance.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Scents & Elegance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set home page as active by default
+            showPage('home');
+            
+            // Add event listeners to navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                    
+                    // Update active link
+                    navLinks.forEach(nav => nav.classList.remove('active-link'));
+                    this.classList.add('active-link');
+                });
+            });
+            
+            // Form submissions
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Login functionality would be implemented here!');
+            });
+            
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Registration functionality would be implemented here!');
+            });
+            
+            // Initialize perfume data and display
+            initializePerfumes();
+            
+            // Filter functionality
+            document.getElementById('filterBtn').addEventListener('click', filterPerfumes);
+            document.getElementById('resetBtn').addEventListener('click', resetFilters);
+        });
+        
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+        }
+        
+        // Perfume data
+        const perfumes = [
+            {
+                id: 1,
+                name: "Midnight Rose",
+                type: "floral",
+                price: 85,
+                image: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                description: "A captivating blend of dark roses and amber"
+            },
+            {
+                id: 2,
+                name: "Sandalwood Essence",
+                type: "woody",
+                price: 120,
+                image: "https://www.mazaya.eg/media/catalog/product/g/a/ga_2025_ea-swy-sandalwood_100ml_3614274184631_rvb-4000_2_.png",
+                description: "Rich sandalwood with hints of vanilla and spice"
+            },
+            {
+                id: 3,
+                name: "Ocean Breeze",
+                type: "fresh",
+                price: 65,
+                image: "https://eg.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/81/0368331/1.jpg?2195",
+                description: "Crisp aquatic notes with sea salt and citrus"
+            },
+            {
+                id: 4,
+                name: "Amber Oud",
+                type: "oriental",
+                price: 150,
+                image: "https://faanperfumes.com/cdn/shop/files/RoyalAmberOudGoldEdition_1432007e-d2e1-4969-bc67-4dc3a773b33d.png?v=1717508719",
+                description: "Luxurious oud with warm amber and spices"
+            },
+            {
+                id: 5,
+                name: "Citrus Splash",
+                type: "citrus",
+                price: 55,
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQKB83PATjcdMlua0qu3m_B2A-q7_u6ssDQQ&s",
+                description: "Zesty lemon and bergamot with green notes"
+            },
+            {
+                id: 6,
+                name: "Velvet Jasmine",
+                type: "floral",
+                price: 95,
+                image: "https://m.media-amazon.com/images/I/71lbNMT5jxL._AC_UF350,350_QL80_.jpg",
+                description: "Intoxicating jasmine with tuberose and musk"
+            },
+            {
+                id: 7,
+                name: "Cedar Forest",
+                type: "woody",
+                price: 110,
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtVqwch2HmGZozs4PJnfPJXXJ2HK7uk866PA&s",
+                description: "Earthy cedarwood with vetiver and patchouli"
+            },
+            {
+                id: 8,
+                name: "Mountain Air",
+                type: "fresh",
+                price: 75,
+                image: "https://www.funfetti.shop/wp-content/uploads/2023/02/Mountain-air.jpg",
+                description: "Clean alpine notes with pine and fresh herbs"
+            }
+        ];
+        
+        function initializePerfumes() {
+            displayPerfumes(perfumes);
+        }
+        
+        function displayPerfumes(perfumesToDisplay) {
+            const container = document.getElementById('perfumesContainer');
+            container.innerHTML = '';
+            
+            if (perfumesToDisplay.length === 0) {
+                container.innerHTML = '<p style="text-align: center; grid-column: 1 / -1; padding: 40px;">No perfumes match your filters. Please try different criteria.</p>';
+                return;
+            }
+            
+            perfumesToDisplay.forEach(perfume => {
+                const perfumeCard = document.createElement('div');
+                perfumeCard.className = 'perfume-card';
+                perfumeCard.innerHTML = `
+                    <img src="${perfume.image}" alt="${perfume.name}" class="perfume-img">
+                    <div class="perfume-info">
+                        <h3 class="perfume-name">${perfume.name}</h3>
+                        <span class="perfume-type">${perfume.type.charAt(0).toUpperCase() + perfume.type.slice(1)}</span>
+                        <p class="perfume-price">$${perfume.price}</p>
+                        <p>${perfume.description}</p>
+                        <button class="btn" style="margin-top: 15px;">Add to Cart</button>
+                    </div>
+                `;
+                container.appendChild(perfumeCard);
+            });
+        }
+        
+        function filterPerfumes() {
+            const typeFilter = document.getElementById('typeFilter').value;
+            const priceFilter = document.getElementById('priceFilter').value;
+            const nameFilter = document.getElementById('nameFilter').value.toLowerCase();
+            
+            let filteredPerfumes = perfumes.filter(perfume => {
+                // Filter by type
+                if (typeFilter && perfume.type !== typeFilter) {
+                    return false;
+                }
+                
+                // Filter by price range
+                if (priceFilter) {
+                    if (priceFilter === '0-50' && (perfume.price < 0 || perfume.price > 50)) {
+                        return false;
+                    } else if (priceFilter === '50-100' && (perfume.price < 50 || perfume.price > 100)) {
+                        return false;
+                    } else if (priceFilter === '100-200' && (perfume.price < 100 || perfume.price > 200)) {
+                        return false;
+                    } else if (priceFilter === '200+' && perfume.price < 200) {
+                        return false;
+                    }
+                }
+                
+                // Filter by name
+                if (nameFilter && !perfume.name.toLowerCase().includes(nameFilter)) {
+                    return false;
+                }
+                
+                return true;
+            });
+            
+            displayPerfumes(filteredPerfumes);
+        }
+        
+        function resetFilters() {
+            document.getElementById('typeFilter').value = '';
+            document.getElementById('priceFilter').value = '';
+            document.getElementById('nameFilter').value = '';
+            displayPerfumes(perfumes);
+        }
+    </script>
+</body>
+</html>
